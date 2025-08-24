@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active{
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+.inactive{
+    color: blue;
+    font-weight: 500;
+    margin-right: 4px;
+}
