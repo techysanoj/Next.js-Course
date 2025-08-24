@@ -2,6 +2,7 @@
 import './styles.css'; 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from 'react';
 
 const navLinks = [
     { name: "Register", href: "/register"},
@@ -15,8 +16,15 @@ export default function AuthLayout({
     children: React.ReactNode;
 }) {
     const pathname = usePathname();
+    const [input, setInput] = useState("");
     return (
         <div>
+            <div>
+                <input value = {input} onChange={e => setInput(e.target.value)}></input> 
+                {/* it will be same for all means if you write anything in the login page in this input button
+                it will remain same for the register or forgot password
+                to remove this simply change the layout.tsx file to templates.tsx*/}
+            </div>
             {navLinks.map((link) => {
                 const isActive = pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/");
                 return (
