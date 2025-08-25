@@ -11,9 +11,9 @@ export default async function ReviewsData({params} : {
     const reviewId = (await params).reviewId
     const productId = (await params).productId
     const random = getRandomInt(2);
-    if(random == 1) {
-        throw new Error("Error Loading")
-    }
+    // if(random == 1) {
+    //     throw new Error("Error Loading")
+    // }
     if(parseInt(reviewId) > 100) {
         // notFound();
         redirect("/");
