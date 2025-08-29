@@ -5,6 +5,7 @@ import { serverSideFunction } from "@/utils/server-utils";
 // import 'slick-carousel/slick/slick-theme.css';
 
 import {ImageSlider} from "@/components/ImageSlider";
+import { clientSideFunction } from "@/utils/client-utils"; // this will give error because that client component is only be usable in the client component
 
 export default function ServerRoutePage() {
     const result = serverSideFunction();
@@ -34,10 +35,16 @@ export default function ServerRoutePage() {
     //   );
 
     // so to use the common function which is beign used in the client side use the component method
+    // return (
+    //     <>
+    //     <h1>Server Route {result}</h1>
+    //     <ImageSlider />
+    //     </>
+    // )
+
+    const clientResult = clientSideFunction();
+
     return (
-        <>
         <h1>Server Route {result}</h1>
-        <ImageSlider />
-        </>
     )
 }
