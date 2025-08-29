@@ -8,9 +8,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { useTheme } from '@/components/theme-provider';
+
 export default function ClientRoutePage() {
     // const result = serverSideFunction();
     // return <h1>Client Route {result}</h1>
+    const theme = useTheme()
     const settings = {
         dots: true,
       };
@@ -30,6 +33,11 @@ export default function ClientRoutePage() {
               <img src="https://picsum.photos/g/400/200" />
             </div>
           </Slider>
+
+            {/* to use the useTheme theme variable */}
+            <h1 style={{color: theme.colors.secondary}}>Client Route Page</h1> 
+
+
         </div>
       );
 }
