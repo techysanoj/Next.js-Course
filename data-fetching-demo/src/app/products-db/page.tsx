@@ -1,3 +1,4 @@
+import { removeProduct } from "@/actions/products";
 import { getProducts } from "@/prisma-db"
 import Link from "next/link";
 
@@ -21,6 +22,15 @@ export default async function ProductsDBPage() {
                     <Link href = {`/products-db/${product.id}`}>{product.title}</Link></h2>
                     <p>{product.description}</p>
                     <p className="text-lg font-medium">${product.price}</p>
+
+                    <form action={removeProduct.bind(null, product.id)}>
+                        {/* we can directly use the onclick onto this but this will make this client componet so we will wrap it to form element */}
+                        <button type="submit" 
+                        className="px-4 py-2 mt-4 text-white bg-red-500 rounded-md hover:bg-red-400">
+                            Delete
+                        </button>
+                    </form>
+                    
                 </li>
             ))}
         </ul>
