@@ -2,20 +2,10 @@
 // so we need to seperate our server action for this
 
 import { Submit } from "@/components/submit";
-import { addProduct } from "@/prisma-db";
 import { create } from "domain";
-import { redirect } from "next/navigation";
 import { useActionState } from "react";
+import {FormState, createProduct} from "@/actions/products"
 
-type Errors = {
-  title?: string;
-  price?: string;
-  description?: string;
-};
-
-type FormState = {
-  errors: Errors;
-};
 
 export default function AddProductPage() {
   const initialState: FormState = {
@@ -27,34 +17,7 @@ export default function AddProductPage() {
     initialState
   );
 
-  async function createProduct(formData: FormData) {
-    "use server";
-    const title = formData.get("title") as string;
-    const price = formData.get("price") as string;
-    const description = formData.get("price") as string;
-
-    const errors: Errors = {};
-
-    if (!title) {
-      errors.title = "Title is required";
-    }
-
-    if (!price) {
-      errors.price = "Price is required";
-    }
-
-    if (!description) {
-      errors.description = "Description is required";
-    }
-
-    if (Object.keys(errors).length > 0) {
-      return { errors };
-    }
-
-    await addProduct(title, parseInt(price), description);
-
-    redirect("/products-db");
-  }
+  
 
   return (
     <form action={formAction} className="p-4 space-y-4 max-w-96">
