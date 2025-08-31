@@ -19,9 +19,20 @@ seedProducts();
 
 // defining the crud operations
 
-export async function getProducts() {
+export async function getProducts(query?: string) {
+    if(query) {
+        const totalProdu = prisma.product.findMany({
+            where: {
+                OR: [
+                    {title: {contains: query}},
+                    {description: {contains: query}},
+                ],
+            },
+        });
+        if((await totalProdu).length) return totalProdu
+        else return prisma.product.findMany();
+    }
     await new Promise((resolve) => setTimeout(resolve, 1500));
-
     return prisma.product.findMany();
 }
 
