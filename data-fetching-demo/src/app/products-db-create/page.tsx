@@ -1,3 +1,4 @@
+import { Submit } from "@/components/submit";
 import { addProduct } from "@/prisma-db";
 import { create } from "domain";
 import { redirect } from "next/navigation";
@@ -31,11 +32,7 @@ export default function AddProductPage() {
                 <input type="text" className="block w-full p-2 text-black border rounded"
                 name="description"  ></input>
             </label>
-            <button
-            type="submit"
-            className="block w-full p-2 text-white bg-blue-500 rounded">
-                Add Product
-            </button>
+            <Submit></Submit>
         </form>
     )
 }
