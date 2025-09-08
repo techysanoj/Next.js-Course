@@ -97,12 +97,6 @@ This repo is structured so that **every commit is a valuable lesson**.
 
 ---
 
-## 📈 Keywords for Learners & SEO
-
-**Next.js course, Next.js tutorial, Next.js beginners, Next.js project, Next.js authentication, Next.js routing, Next.js SSG, Next.js SSR, Next.js data fetching, Next.js API routes, Next.js hands-on, Next.js commit-based learning, React framework, learn Next.js, Next.js best practices, Next.js layout, deploy Next.js app, Next.js examples, Next.js walkthrough, Next.js practical guide**
-
----
-
 ## 🤝 Contributing & Feedback
 
 Feel free to open issues or pull requests for improvements, corrections, or to suggest new topics!
